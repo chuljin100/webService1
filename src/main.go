@@ -1,10 +1,12 @@
 package main
 
 import (
-	"net/http"
-	"github.com/gin-gonic/gin"
+	"db"
 	"login"
+	"net/http"
 	"signup"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
@@ -25,5 +27,6 @@ func main() {
 		v1.GET("/signup", signup.Do)
 		v1.GET("/login", login.Do)
 	}
+	db.ConnectTest()
 	router.Run(":8080")
 }
